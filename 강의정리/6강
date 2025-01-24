@@ -1,1 +1,23 @@
+1.SQL
+-RDBMS에서 데이터 정의, 조작, 조회, 제어 등을 하기 위해 사용하는 언어
+-명령어 종류
+  1)DDL(데이터 정의어): CREATE, ALTER, DROP, RENAME, TRUNCATE
+  2)DML(데이터 조작어): SELECT, INSERT, UPDATE, DELETE, MERGE
+  3)DCL(데이터 제어어): GRAND, REVOKE
+  4)TCL(트랜잭션 제어어): COMMIT, ROLLBACK, SAVEPOINT
 
+2.SELECT
+-테이블에서 원하는 데이터를 조회할 때 사용하는 문법
+예시) SELECT CUST_ID, CUST_NAME, BIRTH_DY
+      FROM TB_CUST
+      WHERE MONEY = 10000;
+  1) TB_CUST테이블에서 데이터를 가져오겠습니다
+  2) TB_CUST테이블에서 MONEY가 10000인 튜플(행)만 가져오겠습니다
+  3) 출력되는 튜플(행)에 대해 CUST_ID, CUST_NAME, BIRTH_DY 컬럼(열)만 가져오겠습니다
+-SELECT*FROM TB_PRD: TB_PRD 테이블의 모든 컬럼 정보를 출력합니다
+-SELECT DISTINCT PRD_TYPE FROM TB_PRD: TB_PRD 테이블의 PRD_TYPE 컬럼을 기준으로 값을 중복없이 출력합니다
+-AS는 SELECT부분에서 출력하려는 컬럼에 대해 새로운 별명을 부여할 수 있다(조회할 때만 바뀌는 거고 컬럼의 이름이 영구적으로 바뀌는 것은 아님)
+  1) 띄어쓰기 불가
+  2) 문자로 시작해야함(숫자로 시작 x)
+  3) 예약어 불가
+  4) 특수문자는 $, _, #만 가능
