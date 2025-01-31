@@ -15,5 +15,3 @@ CASE WHEN 조건 THEN 출력값
      ......
      ELSE 출력값
      END
-
-3.WHERE문법
