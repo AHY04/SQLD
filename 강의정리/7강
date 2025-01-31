@@ -1,0 +1,19 @@
+1.문자형 함수
+-UPPER: 입력받은 문자열에서 소문자를 대문자로 바꿔준다 -- UPPER('문자형 리터럴 1개') 또는 UPPER(문자형 컬럼)
+-SUBSTR: 입력받은 문자형 리터럴에서 시작위치에서 길이만큼 잘라낸다 -- SUBSTR(문자형 리터럴 1개, 시작위치, 길이)
+-TRIM: 입력받은 문자형 리터럴의 양 끝의 공백을 제거한다 -- TRIM('문자형 리터럴 1개')
+-REPLACE: 입력받은 문자형 리터럴에서 특정 값을 원하는 값으로 바꿔준다 -- REPLACE(문자형 리터럴 1개, 특정 값, 원하는 값)
+-ROUND: 실수를 소수점 자릿수까지 반올림한 결과를 출력한다 -- ROUND(실수, 소수점자릿수)
+-SYSDATE: 현재 시간을 초단위까지 날짜형 리터럴로 출력
+
+2.NULL 함수
+-NVL(data1, date2): data1에 NULL값이 들어오면 data2를 출력하고 NULL이 아니면 data1을 출력
+-DECODE(data1, data2, data3, data4 ...): data1과 data2가 동일하면 data3을 출력하고, 그렇지 않으면 data4를 출력
+-CASE문법
+CASE WHEN 조건 THEN 출력값
+     WHEN 조건 THEN 출력값
+     ......
+     ELSE 출력값
+     END
+
+3.WHERE문법
