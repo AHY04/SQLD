@@ -1,0 +1,31 @@
+1.DDL
+-CREATE: 새로운 객체를 생성할 때 사용
+-자료형
+  1) VARCHAR2(n): 문자형 값을 n바이트까지 입력 받을 수 있는 가변형 문자열(공간의 크기를 10바이트로 지정해놔도 4바이트만 입력된다면 공간도 4바이트로 줄어듦)
+  2) CHAR(n): 문자형 값을 n바이트까지 입력 받을 수 있는 고정형 문자열(공간의 크기를 10바이트로 지정해놓았을 때 4바이트만 입력되도 공간의 크기는 그대로임)
+  3) NUMBER(n,m): 숫자형 값을 n만큼 입력받고 m자리만큼 소수를 입력받음, NUMBER로 실수와 정수 모두 표현 가능, NUMBER뒤의 n,m은 생략가능
+  4) DATE: 날짜 값을 입력받음, 이 외에도 TIMESTAMP라는 자료형도 있음
+-테이블 생성 문법: 컬럼명 자료형 [DEFAULT] [NULL여부]
+-제약조건
+  1) PRIMARY KEY(NOT NULL + UNIQUE(중복x)): 식별자 규칙을 물리적 모델링 한 것으로 NULL값 입력 불가, 중복 불가의 특징을 가짐
+                                            ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 PRIMARY KEY(컬럼)
+  2) UNIQUE KEY: PRIMARY KEY와는 다르게 NULL값을 입력할 수 있게 하며, 중복은 불가능
+                 ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 UNIQUE(컬럼)
+  3) CHECK: 특정 컬럼에 데이터를 입력할 때 지정한 데이터만 입력할 수 있도록 함
+  4) FOREIGN KEY: 테이블끼리 연결되어 있는 관계를 물리적 모델링한 것, 무결성을 지원해줌
+                  ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 FOREIGN KEY(참조받을컬럼) REFERENCES 참조할테이블(참조할컬럼)
+-ALTER TABLE 테이블명 ADD 컬러명 자료형 [DEFAULT] [NOT NULL]: 테이블에 컬럼 추가
+-ALTER TABLE 테이블명 DROP COLUMN 컬럼명: 테이블에서 컬럼 삭제
+-ALTER TABLE 테이블명 MODIFY(컬럼명 자료형[DEFAULT] [NOT NULL]): 테이블에서 컬럼 속성 변경
+-ALTER TABLE 테이블명 RENAME COLUMN 컬럼명 TO 바꿀컬럼명: 테이블에서 컬럼의 이름을 변경
+-DROP TABLE 테이블명[CASCADE CONSTRAINTS]: 테이블을 영구 삭제
+-TRUNCATE TABLE 테이블명: 모든 데이터 영구삭제, 테이블은 유지
+
+2.DCL
+-GRANT: 권한을 부여하는 명령어
+        GRANT 부여할권환 [ON 대상객체] TO 부여받을계정 [WITH GRANT OPTION]
+        GRANT에 있는 WITH GRANT OPTION은 권한을 부여받은 사람이 해당 권환을 또다른 사람에게 부여할 수 있는 권한을 의미
+-REVOKE: 권한을 다시 회수하는 문법
+         REVOKE 회수할권환 [ON 회수할객체] FROM 회수당할계정
+         맨 마지막에 CASCADE를 쓰면 회수당하는 계정이 다른 사용자들한테 줬던 권환도 연쇄적으로 회수됨\
+-ROLE: 여러 권한을 한번에 부여할 수 있도록 묶어놓은 개념(예: CONNECT, RESOURCE)
