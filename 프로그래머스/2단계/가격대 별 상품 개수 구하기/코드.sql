@@ -1,0 +1,6 @@
+SELECT FLOOR(PRICE/10000) * 10000 AS PRICE_GROUP, COUNT(*) AS PRODUCTS
+FROM PRODUCT
+GROUP BY PRICE_GROUP
+ORDER BY PRICE_GROUP
+
+## 각 상품의 가격을 10000으로 나누고 소수점 이후의 숫자들을 버린 후, 다시 10000을 곱해줌으로써 각 금액대의 최소금액으로 표현함
